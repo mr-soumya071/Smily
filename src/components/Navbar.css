@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.navbar-logo img {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Automatically adjust the height based on the width */
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-right: 1rem;
+}
+
+.navbar-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-item a:hover {
+    color: #ff7f50; /* Change this to the desired hover color */
+}

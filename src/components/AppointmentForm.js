@@ -68,6 +68,8 @@ function AppointmentForm({ user }) {
   };
 
   return (
+    <div>
+
     <section>
       <h2>Book Appointment</h2>
       <form onSubmit={handleSubmit}>
@@ -139,7 +141,7 @@ function AppointmentForm({ user }) {
           ))}
         </ul>
       </div>
-    </section>
+    </section></div>
   );
 }
 

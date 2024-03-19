@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import PreviousAppointments from "./components/PreviousAppointments"; // Import the PreviousAppointments component
 import "./styles.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,7 +24,10 @@ function App() {
   };
 
   return (
+    <div>
+       <Navbar />
     <div className="App">
+     
       <Header />
       <main>
         <Routes>
@@ -45,7 +49,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </div>
+    </div></div>
   );
 }
 
