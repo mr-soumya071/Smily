@@ -59,11 +59,69 @@ function SignUp({ onSignUp }) {
     <div>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        {/* Form inputs */}
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="firstName">First Name:</label>
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name:</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Sign Up</button>
       </form>
       {showOTPInput && (
         <form onSubmit={handleOTPSubmit}>
-          {/* OTP input */}
+          <label htmlFor="otp">Enter OTP:</label>
+          <input
+            type="text"
+            name="otp"
+            value={otp}
+            onChange={(e) => setOTP(e.target.value)}
+            required
+          />
+          <button type="submit">Verify</button>
         </form>
       )}
     </div>

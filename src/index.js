@@ -36,7 +36,7 @@ Amplify.configure({
     endpoints: [
       {
         name: "appointment",
-        endpoint: "https://aupwxy7qda.execute-api.ap-south-1.amazonaws.com/prod",
+        endpoint: "https://qin90gkomf.execute-api.ap-south-1.amazonaws.com/prod",
         region: "ap-south-1"
       },    
     ]

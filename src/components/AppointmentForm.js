@@ -17,7 +17,7 @@ function AppointmentForm({ user }) {
   const fetchAppointments = async () => {
     try {
       // Make an API call to fetch existing appointments
-      const response = await API.get("appointment","/appointments");
+      const response = await API.get("appointment","/appointment");
       setExistingAppointments(response);
     } catch (error) {
       console.error("Error fetching appointments:", error);
@@ -29,7 +29,7 @@ function AppointmentForm({ user }) {
     try {
       // Add your appointment booking logic here
       const appointmentData = { name, email, date: selectedDate };
-      await API.post("appointment","/appointments", { body: appointmentData });
+      await API.post("appointment","/appointment", { body: appointmentData });
       console.log("Appointment booked:", appointmentData);
       // Reset form fields after booking
       setName("");
@@ -46,7 +46,7 @@ function AppointmentForm({ user }) {
     try {
       // Make an API call to update the appointment date
       const updatedAppointmentData = { appointmentId: appointmentId, date: newDate };
-      await API.put("appointment", `/appointments/${appointmentId}`, { body: updatedAppointmentData });
+      await API.put("appointment", `/appointment/${appointmentId}`, { body: updatedAppointmentData });
       console.log("Appointment date updated:", updatedAppointmentData);
       // Refetch appointments to update the list
       fetchAppointments();
@@ -58,7 +58,7 @@ function AppointmentForm({ user }) {
   const handleDeleteAppointment = async (appointmentId) => {
     try {
       // Make an API call to delete the appointment
-      await API.del("appointment", `/appointments/${appointmentId}`);
+      await API.del("appointment", `/appointment/${appointmentId}`);
       console.log("Appointment deleted:", appointmentId);
       // Refetch appointments to update the list
       fetchAppointments();

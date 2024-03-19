@@ -1,39 +1,39 @@
 import React, { useState, useEffect } from "react";
+import { API } from "aws-amplify";
 
 function PreviousAppointments({ user }) {
   const [previousAppointments, setPreviousAppointments] = useState([]);
 
   useEffect(() => {
-    // Fetch previous appointments for the user from the backend
-    // You need to implement this function to fetch data from your backend API
-    fetchPreviousAppointments(user.id).then((data) => {
-      setPreviousAppointments(data);
-    });
-  }, [user]);
-
-  // Function to fetch previous appointments from the backend
-  const fetchPreviousAppointments = async (userId) => {
-    try {
-      const response = await fetch(`/api/appointments/${userId}`); // Example API endpoint, replace with your actual endpoint
-      if (!response.ok) {
-        throw new Error("Failed to fetch appointments");
+    // Fetch existing appointments and filter previous ones
+    const fetchPreviousAppointments = async () => {
+      try {
+        const response = await API.get("appointment", "/appointment");
+        const appointments = response.filter(appointment => {
+          // Get the current date
+          const currentDate = new Date();
+          // Get the appointment date
+          const appointmentDate = new Date(appointment.date);
+          // Filter appointments where the appointment date is before the current date
+          return appointmentDate < currentDate;
+        });
+        setPreviousAppointments(appointments);
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
       }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  };
+    };
+
+    fetchPreviousAppointments();
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
 
   return (
     <section>
       <h2>Previous Appointments</h2>
       <ul>
-        {previousAppointments.map((appointment) => (
+        {previousAppointments.map(appointment => (
           <li key={appointment.id}>
-            <strong>Date:</strong> {appointment.date}, <strong>Time:</strong>{" "}
-            {appointment.time}, <strong>Doctor:</strong> {appointment.doctor}
+            {appointment.name} - {appointment.date}
+            {/* Add any other details you want to display */}
           </li>
         ))}
       </ul>
