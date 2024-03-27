@@ -1,5 +1,22 @@
+/* Container styles */
 .App {
   text-align: center;
+  background-color: #ff8c00; /* Orange background color */
+}
+
+/* New fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply fade-in animation to elements with class .fade-in */
+.fade-in {
+  animation: fade-in 1s ease-in-out; /* Animation duration is 1 second */
 }
 
 .App-logo {
@@ -14,7 +31,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ff8c00; /* Orange background color */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +42,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #fff; /* White link color */
 }
 
 @keyframes App-logo-spin {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css'; // Assuming you have a corresponding CSS file for styling
-import download from "./download.png";
+import tooth from "./tooth.png";
 
 function Navbar() {
     return (
@@ -8,17 +8,26 @@ function Navbar() {
             <div className="navbar-container">
                 <div className="navbar-logo">
                     <a href="/">
-                        <img src={download}/>
+                        <img src={tooth}/>
                     </a>
                 </div>
                 <ul className="navbar-menu">
                     <li className="navbar-item">
-                        <a href="/">Home</a>
+                        <a href="/Home">Home</a>
                     </li>
                     <li className="navbar-item">
-                        <a href="/about">About</a>
+                        <a href="/PreviousAppointment">PreviousAppointment</a>
                     </li>
-                 
+                    <li className="navbar-item">
+                        <a href="/appointment-form">appointment-form</a>
+                    </li>
+                    <li className="navbar-item">
+                        <a href="/Login">Login</a>
+                    </li>
+                    <li className="navbar-item">
+                        <a href="/SignUp">SignUp</a>
+                    </li>
+
                 </ul>
             </div>
         </nav>

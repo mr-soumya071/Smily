@@ -8,7 +8,7 @@
 /* Set body background and font styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f9fb; /* Light blue background */
+  background-color: #f4f4f4; /* Neutral background */
   color: #333;
 }
 
@@ -17,26 +17,28 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  border-radius: 30px; /* Increase the border radius for more rounded corners */
 }
 
 /* Header styles */
 header {
-  background-color: #33b2e8; /* Blue header */
+  background-color: #ff7f50; /* Orange header */
   color: #fff;
   text-align: center;
   padding: 20px 0;
   border-radius: 5px;
   font-family: 'Arial Narrow', sans-serif;
+  transition: background-color 0.3s ease; /* Transition for background color change */
 }
 
 header h1 {
   font-size: 2rem;
-  color: #ff7f50; /* Coral color */
+  color: #fff; /* White text color */
 }
 
 /* Main content styles */
 main {
-  background-color: #ffffff; /* White content area */
+  background-color: #fff; /* White content area */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -49,71 +51,63 @@ section {
 
 h2 {
   margin-bottom: 10px;
-  color: #008080; /* Teal color */
+  color: #ff7f50; /* Orange text color */
 }
 
-/* Footer styles */
-footer {
-  text-align: center;
-  padding: 10px 0;
-  background-color: #33b2e8; /* Blue footer */
-  color: #fff;
-  border-radius: 5px;
-  font-family: 'Tahoma', sans-serif;
-}
-
-/* Appointment form styles */
-form {
-  background-color: #d9eaf7; /* Light blue form background */
+/* Login form styles */
+.login-form {
+  background-color: #ffe4b2; /* Light orange form background */
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 30px; /* Make the form oval-shaped */
 }
 
 label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #6a5acd; /* SlateBlue color */
+  color: #333; /* Dark text color */
 }
 
 /* Input styles */
 input[type="text"],
 input[type="email"],
-input[type="date"] {
+input[type="password"] {
   width: calc(100% - 18px);
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #b3d6e7; /* Light blue border */
+  border: 1px solid #ff7f50; /* Orange border */
   border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
+  transition: border-color 0.3s ease; /* Transition for border color change */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="date"]:focus {
-  border-color: #33b2e8; /* Blue border on focus */
+input[type="password"]:focus {
+  border-color: #ffa07a; /* Lighter orange border color on focus */
   outline: none;
 }
 
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
-input[type="date"]::placeholder {
+input[type="password"]::placeholder {
   color: #999;
 }
 
 /* Button styles */
 button {
-  background-color: #33b2e8; /* Blue button */
+  background-color: #ff7f50; /* Orange button */
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* Transition for background color change */
+  width: calc(100% - 18px); /* Adjust the width to match the input fields */
 }
 
 button:hover {
-  background-color: #1a8bc8; /* Darker blue on hover */
+  background-color: #ffa07a; /* Lighter orange button color on hover */
 }
 
 /* Additional styles */
@@ -126,7 +120,7 @@ button:hover {
 
 /* Add background image */
 body {
-  background-image: url("background.jpg");
+  background-image: url("background1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }

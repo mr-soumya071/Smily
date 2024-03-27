@@ -17,7 +17,7 @@ function AppointmentForm({ user }) {
   const fetchAppointments = async () => {
     try {
       // Make an API call to fetch existing appointments
-      const response = await API.get("appointment","/appointment");
+      const response = await API.get("appointment", "/appointment");
       setExistingAppointments(response);
     } catch (error) {
       console.error("Error fetching appointments:", error);
@@ -29,7 +29,7 @@ function AppointmentForm({ user }) {
     try {
       // Add your appointment booking logic here
       const appointmentData = { name, email, date: selectedDate };
-      await API.post("appointment","/appointment", { body: appointmentData });
+      await API.post("appointment", "/appointment", { body: appointmentData });
       console.log("Appointment booked:", appointmentData);
       // Reset form fields after booking
       setName("");
@@ -45,8 +45,13 @@ function AppointmentForm({ user }) {
   const handleUpdateDate = async (appointmentId, newDate) => {
     try {
       // Make an API call to update the appointment date
-      const updatedAppointmentData = { appointmentId: appointmentId, date: newDate };
-      await API.put("appointment", `/appointment/${appointmentId}`, { body: updatedAppointmentData });
+      const updatedAppointmentData = {
+        appointmentId: appointmentId,
+        date: newDate,
+      };
+      await API.put("appointment", `/appointment/${appointmentId}`, {
+        body: updatedAppointmentData,
+      });
       console.log("Appointment date updated:", updatedAppointmentData);
       // Refetch appointments to update the list
       fetchAppointments();
@@ -69,79 +74,79 @@ function AppointmentForm({ user }) {
 
   return (
     <div>
+      <section>
+        <h2>Book Appointment</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              readOnly={user ? true : false} // Disable editing if user is logged in
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              readOnly={user ? true : false} // Disable editing if user is logged in
+            />
+          </div>
+          <div>
+            <label>Date:</label>
+            <br />
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              minDate={new Date()}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="MMMM d, yyyy - h:mm aa" // Custom date and time format
+              required
+            />
+          </div>
+          <div>
+            <button type="submit">Add Appointment</button>
+          </div>
+        </form>
 
-    <section>
-      <h2>Book Appointment</h2>
-      <form onSubmit={handleSubmit}>
+        {/* Display existing appointments */}
         <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            readOnly={user ? true : false} // Disable editing if user is logged in
-          />
+          <h2>Booked Appointments List</h2>
+          <ul>
+            {existingAppointments.map((appointment) => (
+              <li key={appointment.appointmentId}>
+                {appointment.name} - {appointment.date}
+                {/* Update and delete buttons */}
+                {/* <button onClick={() => handleUpdateDate(appointment.appointmentId, appointment.selectedDate)}>Update</button> */}
+                <button onClick={() => handleDeleteAppointment(appointment.appointmentId)}>Remove</button>
+                {/* DatePicker component */}
+                <DatePicker
+                  selected={new Date(appointment.date)}
+                  onChange={(date) => handleUpdateDate(appointment.appointmentId, date)}
+                  minDate={new Date()}
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  timeCaption="Time"
+                  dateFormat="MMMM d, yyyy - h:mm aa" // Custom date and time format
+                  required
+                />
+              </li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            readOnly={user ? true : false} // Disable editing if user is logged in
-          />
-        </div>
-        <div>
-          <label>Date:</label>
-          <br />
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            minDate={new Date()}
-            showTimeSelect
-            timeFormat="HH:mm"
-            timeIntervals={15}
-            timeCaption="Time"
-            dateFormat="MMMM d, yyyy h:mm aa"
-            required
-          />
-        </div>
-        <div>
-          <button type="submit">Book Appointment</button>
-        </div>
-      </form>
-
-      {/* Display existing appointments */}
-      <div>
-        <h2>Existing Appointments</h2>
-        <ul>
-          {existingAppointments.map((appointment) => (
-            <li key={appointment.appointmentId}>
-              {appointment.name} - {appointment.date}
-              {/* Update and delete buttons */}
-              {/* <button onClick={() => handleUpdateDate(appointment.appointmentId, appointment.selectedDate)}>Update</button> */}
-              <button onClick={() => handleDeleteAppointment(appointment.appointmentId)}>Delete</button>
-              {/* DatePicker component */}
-              <DatePicker
-                selected={new Date(appointment.date)}
-                onChange={(date) => handleUpdateDate(appointment.appointmentId, date)}
-                minDate={new Date()}
-                showTimeSelect
-                timeFormat="HH:mm"
-                timeIntervals={15}
-                timeCaption="Time"
-                dateFormat="MMMM d, yyyy h:mm aa"
-                required
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section></div>
+      </section>
+    </div>
   );
 }
 

@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import PreviousAppointments from "./components/PreviousAppointments"; // Import the PreviousAppointments component
 import "./styles.css";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,31 +26,33 @@ function App() {
 
   return (
     <div>
-       <Navbar />
-    <div className="App">
-     
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Login onLogin={handleLogin} />} />
-          <Route
-            path="/signup"
-            element={<SignUp onSignUp={handleSignUp} />}
-          />
-          <Route
-            path="/appointments"
-            element={<AppointmentList user={user} />} // Pass user prop to AppointmentList component
-          />
-          <Route
-            path="/previous-appointments"
-            element={<PreviousAppointments user={user} />}
-          />{" "}
-          // Render PreviousAppointments component
-          <Route path="/appointment-form" element={<AppointmentForm />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div></div>
+      <Navbar />
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
+            <Route
+              path="/signup"
+              element={<SignUp onSignUp={handleSignUp} />}
+            />
+            <Route
+              path="/appointments"
+              element={<AppointmentList user={user} />} // Pass user prop to AppointmentList component
+            />
+            <Route
+              path="/previous-appointments"
+              element={<PreviousAppointments user={user} />} // Render PreviousAppointments component
+            />
+            <Route path="/appointment-form" element={<AppointmentForm />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/Login" element={<Login />} />
+             <Route path="/SignUp" element={<SignUp />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </div>
   );
 }
 
