@@ -8,7 +8,7 @@ function Navbar() {
             <div className="navbar-container">
                 <div className="navbar-logo">
                     <a href="/">
-                        <img src={tooth}/>
+                        <img src={tooth} alt='logo'/>
                     </a>
                 </div>
                 <ul className="navbar-menu">

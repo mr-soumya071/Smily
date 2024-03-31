@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import AppointmentForm from "./components/AppointmentForm";
 import AppointmentList from "./components/AppointmentList";

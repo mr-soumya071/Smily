@@ -14,6 +14,7 @@ function SignUp({ onSignUp }) {
   const [showOTPInput, setShowOTPInput] = useState(false);
   const [otp, setOTP] = useState("");
   const [error, setError] = useState("");
+  console.log(error);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
