@@ -45,7 +45,6 @@ function App() {
               element={<PreviousAppointments user={user} />} // Render PreviousAppointments component
             />
             <Route path="/appointment-form" element={<AppointmentForm />} />
-            <Route path="/Home" element={<Home />} />
             <Route path="/Login" element={<Login />} />
              <Route path="/SignUp" element={<SignUp />} />
           </Routes>

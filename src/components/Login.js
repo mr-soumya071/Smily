@@ -54,7 +54,7 @@ function Login({ onLogin }) {
           <button type="submit">Login</button>
         </div>
       </form>
-      <h5> Don't have an account? Fill the signup form . </h5>
+      <h5> Don't have an account? <a href="/signup">Fill the signup form</a> </h5>
     </div>
   );
 }
