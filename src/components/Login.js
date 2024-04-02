@@ -1,7 +1,9 @@
+// Login.js
+
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // Import CSS file for styling
+import "./Login.css";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -19,8 +21,12 @@ function Login({ onLogin }) {
     }
   };
 
+  const handleSignUp = () => {
+    navigate("/signup"); // Redirect to sign up page
+  };
+
   return (
-    <div className="oval-form-container"> {/* Apply oval shape styling */}
+    <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -43,18 +49,18 @@ function Login({ onLogin }) {
             required
           />
           <button
+            className="gg" 
             type="button" // Button to toggle password visibility
             onClick={() => setShowPassword(!showPassword)}
-            style={{ fontSize: "small" }} // Applying small size
           >
-            {showPassword ? "Hide It" : "Show My Password"} {/* Text indicates show/hide password */}
+            {showPassword ? " Hide " : "Show My Password"} {/* Text indicates show/hide password */}
           </button>
         </div>
         <div>
-          <button type="submit">Login</button>
+          <button className="ss" type="submit">Login</button>
+          <button className="bb" type="button" onClick={handleSignUp}>Sign Up</button> {/* Sign up button */}
         </div>
       </form>
-      <h5> Don't have an account? <a href="/signup">Fill the signup form</a> </h5>
     </div>
   );
 }

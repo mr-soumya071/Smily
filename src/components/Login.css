@@ -1,5 +1,27 @@
 .oval-form-container {
-    border-radius: 50px; /* Adjust the border-radius to make the form oval-shaped */
-    background-color: #f0f0f0; /* Set the background color */
-    padding: 20px; /* Add padding to the form */
-  }
+  border-radius: 50px; /* Adjust the border-radius to make the form oval-shaped */
+  background-color: #f0f0f0; /* Set the background color */
+  padding: 20px; /* Add padding to the form */
+}
+.bb {
+  margin-top: 20px;
+}
+
+.ss {
+  margin-top: 20px;
+}
+
+.gg {
+  font-size: smaller; /* Making the font smaller */
+  border: none; /* Removing the border */
+  background-color: transparent; /* Making background transparent */
+  color: blue; /* Setting text color */
+  cursor: pointer; /* Changing cursor to pointer on hover */
+  outline: none; /* Removing outline */
+}
+
+.gg:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #0000EE; /* Change color on hover */
+}
+

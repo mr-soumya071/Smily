@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import { useNavigate } from "react-router-dom";
+import "./SignUp.css";
 
 function SignUp({ onSignUp }) {
   const [formData, setFormData] = useState({
@@ -110,7 +111,7 @@ function SignUp({ onSignUp }) {
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button  className="cc" type="submit">Sign Up</button>
       </form>
       {showOTPInput && (
         <form onSubmit={handleOTPSubmit}>
